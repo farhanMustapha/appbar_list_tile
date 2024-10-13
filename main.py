@@ -2,12 +2,12 @@ from flet import *
 
 def hello(e):
     print("button work")
-    if e.control.text=="item 1":
-        print("item 1 clicked")
-    elif e.control.text=="item 2":
-        print("item  2 clicked")
-    elif e.control.text=="item 3":
-        print("item 3 clicked")
+    if e.control.text=="login":
+        print("open page to log in")
+    elif e.control.text=="create account":
+        print("open page to create account")
+    elif e.control.text=="contact us":
+        print("open page to contact support")
 
 def icon_click(e):
     print("icon cliked")
@@ -38,9 +38,9 @@ def main(page:Page):
             IconButton(icons.AD_UNITS,on_click=icon_click),
             PopupMenuButton(
                 items=[
-                    PopupMenuItem(text="item 1",on_click=hello),
-                    PopupMenuItem(text="item 2",on_click=hello),
-                    PopupMenuItem(text="item 3",on_click=hello),
+                    PopupMenuItem(text="login",on_click=hello),
+                    PopupMenuItem(text="create account",on_click=hello),
+                    PopupMenuItem(text="contact us",on_click=hello),
                 ]
             )
         ]
