@@ -30,7 +30,7 @@ def main(page:Page):
 
     page.appbar=AppBar(
         center_title=True,
-        title=Text("programation app"),
+        title=Text("programation app",size=12),
         leading=Icon(icons.PALETTE),#ajout d'icon
         leading_width=40, # ajout espace a gauche element de app bar cad icon
         bgcolor=colors.AMBER,
@@ -49,21 +49,21 @@ def main(page:Page):
 
     page.add(
         ListTile(
-            title=Text("Comptabilite"),
+            title=Text("Comptabilite",size=12),
             leading=Icon(icons.PLAY_LESSON),
-            subtitle=Text("les conceptes de base"),
+            subtitle=Text("les conceptes de base",size=12),
             on_click=click_item
         ),
         ListTile(
-            title=Text("Comptabilite"),
+            title=Text("Comptabilite",size=12),
             leading=Icon(icons.PLAY_LESSON),
-            subtitle=Text("les operations courantes"),
+            subtitle=Text("les operations courantes",size=12),
             on_click=click_item
         ),
         ListTile(
-            title=Text("Comptabilite"),
+            title=Text("Comptabilite",size=12),
             leading=Icon(icons.PLAY_LESSON),
-            subtitle=Text("les travaux d'inventaire"),
+            subtitle=Text("les travaux d'inventaire",size=12),
             on_click=click_item
         )
     )
