@@ -1,9 +1,10 @@
 from flet import *
 
 def hello(e):
-    print("button work")
     if e.control.text=="login":
         print("open page to log in")
+        
+        
     elif e.control.text=="create account":
         print("open page to create account")
     elif e.control.text=="contact us":
@@ -21,12 +22,51 @@ def click_item(e):
     elif e.control.subtitle.value=="les travaux d'inventaire":
         print("hello les travaux d'inventaire")
     
-        
-           
+    
 
 def main(page:Page):
     page.window.width=450
     page.window.left=750
+
+    def login_page(e):
+        page.clean()
+        pw_input=TextField(label="pass word",password=True)
+        email_input=TextField(label="Email")
+        btn_login=ElevatedButton("login")
+        page.add(
+            pw_input,
+            email_input,btn_login
+        )
+        page.update()
+
+    def create_account_page(e):
+        page.clean()
+        fullName_input=TextField(label="Full Name  ")
+        email_input=TextField(label="Email")
+        pw_input=TextField(label="pass word",password=True)
+        pw_confirm_input=TextField(label="pass word",password=True)
+        btn_create_acc=ElevatedButton("Create ")
+        page.add(
+            fullName_input,
+            email_input,pw_input,pw_confirm_input,btn_create_acc
+        )
+        page.update()
+
+    def contact_us_page(e):
+        def send_msg(e):
+            if msg_input.value=="":
+                print("please entrer ta message")
+            else:
+                print("votre message envoyer avec succes")
+
+        page.clean()
+        msg_input=TextField(label="message",multiline=True,min_lines=5)
+        btn_send=ElevatedButton("send",on_click=send_msg)
+        page.add(
+            msg_input,
+            btn_send
+        )
+        page.update()
 
     page.appbar=AppBar(
         center_title=True,
@@ -38,9 +78,9 @@ def main(page:Page):
             IconButton(icons.AD_UNITS,on_click=icon_click),
             PopupMenuButton(
                 items=[
-                    PopupMenuItem(text="login",on_click=hello),
-                    PopupMenuItem(text="create account",on_click=hello),
-                    PopupMenuItem(text="contact us",on_click=hello),
+                    PopupMenuItem(text="login",on_click=login_page),
+                    PopupMenuItem(text="create account",on_click=create_account_page),
+                    PopupMenuItem(text="contact us",on_click=contact_us_page),
                 ]
             )
         ]
