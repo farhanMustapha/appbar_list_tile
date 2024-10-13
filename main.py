@@ -27,7 +27,7 @@ def click_item(e):
 def main(page:Page):
     page.window.width=450
     page.window.left=750
-    page.window.title_bar_hidden=True
+    #page.window.title_bar_hidden=True
 
     def login_page(e):
         page.clean()
@@ -60,12 +60,21 @@ def main(page:Page):
             else:
                 print("votre message envoyer avec succes")
 
+        def open_wtsup(e):
+            page.launch_url("https://wa.me/212668773310")
+
         page.clean()
         msg_input=TextField(label="message",multiline=True,min_lines=5)
         btn_send=ElevatedButton("send",on_click=send_msg)
+        btn_wtsup=ElevatedButton("wtsup",icon=icons.FACEBOOK,on_click=open_wtsup)
+        row_btn=Row(
+            controls=[
+                btn_send,btn_wtsup
+            ]
+        )
         page.add(
             msg_input,
-            btn_send
+            row_btn
         )
         page.update()
 
