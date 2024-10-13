@@ -16,7 +16,7 @@ def icon_click(e):
 def click_item(e):
     print("list tile item clicked")
     if e.control.subtitle.value=="les conceptes de base":
-        print("hello les conceptes de base")
+        print("upgrade to get acces")
     elif e.control.subtitle.value=="les operations courantes":
         print("hello les operations courantes")
     elif e.control.subtitle.value=="les travaux d'inventaire":
@@ -27,6 +27,7 @@ def click_item(e):
 def main(page:Page):
     page.window.width=450
     page.window.left=750
+    page.window.title_bar_hidden=True
 
     def login_page(e):
         page.clean()
@@ -71,11 +72,11 @@ def main(page:Page):
     page.appbar=AppBar(
         center_title=True,
         title=Text("programation app",size=12),
-        leading=Icon(icons.PALETTE),#ajout d'icon
+        leading=Icon(icons.HOME),#ajout d'icon
         leading_width=40, # ajout espace a gauche element de app bar cad icon
         bgcolor=colors.AMBER,
         actions=[
-            IconButton(icons.AD_UNITS,on_click=icon_click),
+            #IconButton(icons.AD_UNITS,on_click=icon_click),
             PopupMenuButton(
                 items=[
                     PopupMenuItem(text="login",on_click=login_page),
